@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import "antd/dist/antd.css";
 import { Tabs } from 'antd';
 import Users from './components/Users';
 import Todo from './components/Todo';
