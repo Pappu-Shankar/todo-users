@@ -3,7 +3,7 @@ import CustomTable from './CustomTable';
 import UserForm from './UserForm';
 import { connect } from 'react-redux';
 import { addUser, deleteUser, updateUser } from '../redux/actions/userActions';
-import uuid from 'uuid';
+import uuid from 'react-uuid';
 import { formValid } from '../Utils'
 import CustomModal from './CustomModal';
 import { Divider } from 'antd';
