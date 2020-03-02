@@ -3,7 +3,7 @@ import CustomTable from './CustomTable';
 import TodoForm from './TodoForm';
 import { connect } from 'react-redux';
 import { addTask, deleteTask, updateTask } from '../redux/actions/todoActions';
-import uuid from 'uuid';
+import uuid from "react-uuid";
 import { formValid } from '../Utils'
 import CustomModal from './CustomModal';
 
