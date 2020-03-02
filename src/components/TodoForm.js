@@ -11,7 +11,7 @@ class TodoForm extends React.Component {
         this.state = {
             id: null,
             task: '',
-            dateAdded: moment(new Date(), dateFormat),
+            dateAdded: moment(new Date()).format(dateFormat),
             formErrors: {
                 task: '',
                 dateAdded: ''

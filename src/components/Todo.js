@@ -81,7 +81,7 @@ class Todo extends React.Component {
                 this.formRef.setState({
                     id: null,
                     task: '',
-                    dateAdded: moment(new Date(), "DD-MM-YYYY HH:mm"),
+                    dateAdded: moment(new Date()).format("DD-MM-YYYY HH:mm"),
                     formErrors: {
                         task: '',
                         dateAdded: ''
@@ -101,7 +101,7 @@ class Todo extends React.Component {
         this.formRef.setState({
             id: null,
             task: '',
-            dateAdded: moment(new Date(), "DD-MM-YYYY HH:mm"),
+            dateAdded: moment(new Date()).format("DD-MM-YYYY HH:mm"),
             formErrors: {
                 task: '',
                 dateAdded: ''
