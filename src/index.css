@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+input.error{
+  /* background-color: #fce4e4; */
+  /* border: 1px solid #cc0033;
+  outline: 0; */
+  color: #495057 !important;
+  background-color: #fff !important;
+  border-color: #cc0033 !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25) !important;
+}
+
+.errorMessage{
+color: #cc0033;  
+text-align: left !important;
+}
