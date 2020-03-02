@@ -43,7 +43,7 @@ class TodoForm extends React.Component {
         const date = value.format(dateFormat);
         let formErrors = { ...this.state.formErrors };
         formErrors.dateAdded = date.length >= 1 ? "" : "Enter a valid date";
-        this.setState({ ['dateAdded']: date });
+        this.setState({ 'dateAdded': date });
     }
     render() {
         const { formErrors } = this.state;

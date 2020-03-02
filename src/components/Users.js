@@ -3,10 +3,10 @@ import CustomTable from './CustomTable';
 import UserForm from './UserForm';
 import { connect } from 'react-redux';
 import { addUser, deleteUser, updateUser } from '../redux/actions/userActions';
-import uuid from 'react-uuid';
+import uuid from 'uuid';
 import { formValid } from '../Utils'
 import CustomModal from './CustomModal';
-import { Divider } from 'antd';
+import { Divider,Button } from 'antd';
 
 class Users extends React.Component {
 
@@ -22,22 +22,22 @@ class Users extends React.Component {
             title: 'Name',
             dataIndex: 'name',
             key: 'name',
-            render: text => <a>{text}</a>,
+            render: text => <span>{text}</span>,
         },
         {
             title: 'Email Id',
             dataIndex: 'email',
             key: 'email',
-            render: text => <a>{text}</a>,
+            render: text => <span>{text}</span>,
         },
         {
             title: 'Action',
             key: 'action',
             render: (element) => (
                 <span >
-                    <a onClick={() => this.onEditHandler(element)}>Edit</a>
+                    <Button type="dashed" onClick={() => this.onEditHandler(element)}>Edit</Button>
                     <Divider type="vertical" />
-                    <a onClick={() => this.onDeleteHandler(element)}>Delete</a>
+                    <Button type="dashed" danger onClick={() => this.onDeleteHandler(element)}>Delete</Button>
                 </span>
             ),
         },

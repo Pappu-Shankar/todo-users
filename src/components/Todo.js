@@ -7,7 +7,7 @@ import uuid from 'react-uuid';
 import { formValid } from '../Utils';
 import moment from 'moment';
 import CustomModal from './CustomModal';
-import { Divider } from 'antd';
+import { Divider,Button } from 'antd';
 
 class Todo extends React.Component {
 
@@ -23,22 +23,22 @@ class Todo extends React.Component {
             title: 'Task',
             dataIndex: 'task',
             key: 'task',
-            render: text => <a>{text}</a>,
+            render: text => <span>{text}</span>,
         },
         {
             title: 'Date',
             dataIndex: 'dateAdded',
             key: 'dateAdded',
-            render: text => <a>{text}</a>,
+            render: text => <span>{text}</span>,
         },
         {
             title: 'Action',
             key: 'action',
             render: (element) => (
                 <span >
-                    <a href="#" onClick={() => this.onEditHandler(element)}>Edit</a>
+                    <Button type="dashed" onClick={() => this.onEditHandler(element)}>Edit</Button>
                     <Divider type="vertical" />
-                    <a href="#" onClick={() => this.onDeleteHandler(element)}>Delete</a>
+                    <Button type="dashed" danger onClick={() => this.onDeleteHandler(element)}>Delete</Button>
                 </span>
             ),
         },
