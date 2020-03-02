@@ -3,9 +3,10 @@ import CustomTable from './CustomTable';
 import UserForm from './UserForm';
 import { connect } from 'react-redux';
 import { addUser, deleteUser, updateUser } from '../redux/actions/userActions';
-import uuid from "react-uuid";
+import uuid from 'uuid';
 import { formValid } from '../Utils'
 import CustomModal from './CustomModal';
+import { Divider } from 'antd';
 
 class Users extends React.Component {
 
@@ -24,12 +25,18 @@ class Users extends React.Component {
             render: text => <a>{text}</a>,
         },
         {
+            title: 'Email Id',
+            dataIndex: 'email',
+            key: 'email',
+            render: text => <a>{text}</a>,
+        },
+        {
             title: 'Action',
             key: 'action',
             render: (element) => (
                 <span >
-                    <a style={{ marginRight: 16 }} onClick={() => this.onEditHandler(element)}>Edit</a>
-                    {/* <div style={{ position:'absolute',left:'6%',top:'10%',bottom:'10%',borderLeft:'1px solid black'}}></div> */}
+                    <a onClick={() => this.onEditHandler(element)}>Edit</a>
+                    <Divider type="vertical" />
                     <a onClick={() => this.onDeleteHandler(element)}>Delete</a>
                 </span>
             ),
@@ -77,11 +84,13 @@ class Users extends React.Component {
                         emailId: ''
                     }
                 });
-                this.setState({ editObj:null });
+                this.setState({ editObj: null });
                 this.modalRef.setState({ loading: false, visible: false });
             }, 3000);
         } else {
             console.log("FORM INVALID - DISPLAY ERROR MESSAGE");
+            alert("FORM INVALID");
+            this.modalRef.setState({ loading: false });
         }
     }
 
@@ -95,7 +104,7 @@ class Users extends React.Component {
                 emailId: ''
             }
         });
-        this.setState({ editObj:null });
+        this.setState({ editObj: null });
     }
 
     render() {

@@ -31,7 +31,7 @@ class CustomModal extends React.Component {
           title={this.props.title}
           onCancel={this.handleCancel}
           footer={[
-            <Button key="back" onClick={this.handleCancel}>
+            <Button key="back" onClick={this.handleCancel} loading={loading}>
               Cancel
             </Button>,
             <Button key="submit" type="primary" loading={loading} onClick={this.props.handleOk}>

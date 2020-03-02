@@ -1,8 +1,8 @@
 const initialState = {
   tasks: [
-    { key: '001', task: 'Task 1', dateAdded: new Date() },
-    { key: '002', task: 'Task 2', dateAdded: new Date() },
-    { key: '003', task: 'Task 3', dateAdded: new Date() },
+    { key: '001', task: 'Task 1', dateAdded: '01-03-2020 12:12' },
+    { key: '002', task: 'Task 2', dateAdded: '01-03-2020 12:12' },
+    { key: '003', task: 'Task 3', dateAdded: '01-03-2020 12:12' },
   ]
 };
 

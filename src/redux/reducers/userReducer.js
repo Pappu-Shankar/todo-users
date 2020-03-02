@@ -1,8 +1,8 @@
 const initialState = {
   users: [
-    // { key: '001', name: 'Pappu Shankar', email: 'pappushankar59@gmail.com' },
-    // { key: '002', name: 'Suriya', email: 'suriya@gmail.com' },
-    // { key: '003', name: 'Sathya', email: 'sathya@gmail.com' },
+    { key: '001', name: 'Mike', email: 'moke@gmail.com' },
+    { key: '002', name: 'John', email: 'john@gmail.com' },
+    { key: '003', name: 'Shankar', email: 'shankar@gmail.com' },
   ]
 };
 

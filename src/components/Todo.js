@@ -3,9 +3,11 @@ import CustomTable from './CustomTable';
 import TodoForm from './TodoForm';
 import { connect } from 'react-redux';
 import { addTask, deleteTask, updateTask } from '../redux/actions/todoActions';
-import uuid from "react-uuid";
-import { formValid } from '../Utils'
+import uuid from 'react-uuid';
+import { formValid } from '../Utils';
+import moment from 'moment';
 import CustomModal from './CustomModal';
+import { Divider } from 'antd';
 
 class Todo extends React.Component {
 
@@ -20,7 +22,13 @@ class Todo extends React.Component {
         {
             title: 'Task',
             dataIndex: 'task',
-            key: 'name',
+            key: 'task',
+            render: text => <a>{text}</a>,
+        },
+        {
+            title: 'Date',
+            dataIndex: 'dateAdded',
+            key: 'dateAdded',
             render: text => <a>{text}</a>,
         },
         {
@@ -28,8 +36,8 @@ class Todo extends React.Component {
             key: 'action',
             render: (element) => (
                 <span >
-                    <a href="#" style={{ marginRight: 16 }} onClick={() => this.onEditHandler(element)}>Edit</a>
-                    {/* <div style={{ position:'absolute',left:'6%',top:'10%',bottom:'10%',borderLeft:'1px solid black'}}></div> */}
+                    <a href="#" onClick={() => this.onEditHandler(element)}>Edit</a>
+                    <Divider type="vertical" />
                     <a href="#" onClick={() => this.onDeleteHandler(element)}>Delete</a>
                 </span>
             ),
@@ -59,13 +67,13 @@ class Todo extends React.Component {
             let formData = {
                 key: this.formRef.state.id,
                 task: this.formRef.state.task,
-                dataAdded: this.formRef.state.dataAdded
+                dateAdded: this.formRef.state.dateAdded
             }
-            
+
             setTimeout(() => {
                 if (formData.key === null) {
                     formData.key = uuid();
-                    formData.dataAdded = new Date();
+                    // formData.dateAdded = new Date();
                     this.props.dispatch(addTask(formData));
                 } else {
                     this.props.dispatch(updateTask(formData));
@@ -73,10 +81,10 @@ class Todo extends React.Component {
                 this.formRef.setState({
                     id: null,
                     task: '',
-                    dataAdded: '',
+                    dateAdded: moment(new Date(), "DD-MM-YYYY HH:mm"),
                     formErrors: {
                         task: '',
-                        dataAdded: ''
+                        dateAdded: ''
                     }
                 });
                 this.setState({ editObj: null });
@@ -84,6 +92,8 @@ class Todo extends React.Component {
             }, 3000);
         } else {
             console.log("FORM INVALID - DISPLAY ERROR MESSAGE");
+            alert("FORM INVALID");
+            this.modalRef.setState({ loading: false });
         }
     }
 
@@ -91,10 +101,10 @@ class Todo extends React.Component {
         this.formRef.setState({
             id: null,
             task: '',
-            dataAdded: '',
+            dateAdded: moment(new Date(), "DD-MM-YYYY HH:mm"),
             formErrors: {
                 task: '',
-                dataAdded: ''
+                dateAdded: ''
             }
         });
         this.setState({ editObj: null });
